@@ -1,10 +1,9 @@
 webalin
--------
+=======
 
-**Web** **A**ccessibility **Lin**ter
+**Web** **A**\ ccessibility **Lin**\ ter
 
 :Author: `Derek Payton`_
-:License: `MIT`_
+:License: MIT
 
 .. _Derek Payton: http://dmpayton.com
-.. _MIT: https://github.com/dmpayton/django-admin-honeypot/blob/master/LICENSE
