@@ -96,7 +96,7 @@ class Webalin(object):
     def check_doctype(self):
         ''' The document must specify <!DOCTYPE> '''
         if not self.markup.strip().startswith('<!DOCTYPE'):
-            self.error('<!DOCTYPE> is missing')
+            self.log.error('<!DOCTYPE> is missing')
 
     def check_title(self):
         ''' <title> must exist '''
