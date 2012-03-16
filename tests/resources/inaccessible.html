@@ -1,0 +1,50 @@
+<html>
+<head>
+</head>
+
+<body>
+
+<img src="/satic/images/logo.png" />
+
+<h1>Web Accessibility Linter</h1>
+
+<p>This document is an example of an <em>inaccessible</em> page, and <em>should
+not</em> pass webalin.</p>
+
+<h2>Tables</h2>
+
+<!-- Adapted from @kcunning's Section 508 poster at PyCon 2012 -->
+<table>
+    <tr>
+        <th>Ice cream</th>
+        <th>Allergens</th>
+    </th>
+    <tr>
+        <td>Lemon Sorbet</td>
+        <td>Contains eggs</td>
+    </tr>
+    <tr class="odd">
+        <td>Basil Mint</td>
+        <td>Vegan!</td>
+    </tr>
+</table>
+
+<h2>Forms</h2>
+<form id="login-form">
+    <fieldset><legend>Login Form</legend>
+        <div class="field-row">
+            <span>Username:</span>
+            <input type="text" id="id_username" name="username" />
+        </div>
+        <div class="field-row">
+            <span>Password:</span>
+            <input type="password" id="id_password" name="password" />
+        </div>
+        <div class="field-submit">
+            <input type="submit" src="/static/images/submit.png" id="id_submit" />
+        </div>
+    </fieldset>
+</form>
+
+</body>
+</html>

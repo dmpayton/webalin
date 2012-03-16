@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weblin Test - Accessible Document</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+<img src="/satic/images/logo.png" alt="" />
+
+<h1>Web Accessibility Linter</h1>
+
+<p>This document is an example of an accessible page, and <em>should</em> pass
+webalin with no errors.</p>
+
+<h2>Tables</h2>
+
+<!-- Adapted from @kcunning's Section 508 poster at PyCon 2012 -->
+<table summary="Ice cream flavors and allergens">
+    <tr>
+        <th scope="col">Ice cream</th>
+        <th scope="col">Allergens</th>
+    </th>
+    <tr scope="row">
+        <td>Lemon Sorbet</td>
+        <td>Contains eggs</td>
+    </tr>
+    <tr scope="row" class="odd">
+        <td>Basil Mint</td>
+        <td>Vegan!</td>
+    </tr>
+</table>
+
+<h2>Forms</h2>
+<form id="login-form">
+    <fieldset><legend>Login Form</legend>
+        <div class="field-row">
+            <label for="id_username">Username:</label>
+            <input type="text" id="id_username" name="username" />
+        </div>
+        <div class="field-row">
+            <label for="id_password">Password:</label>
+            <input type="password" id="id_password" name="password" />
+        </div>
+        <div class="field-submit">
+            <input type="submit" src="/static/images/submit.png" id="id_submit" alt="Submit" />
+        </div>
+    </fieldset>
+</form>
+
+</body>
+</html>

@@ -14,7 +14,7 @@ setup(
     author_email='derek.payton@gmail.com',
     py_modules=['webalin'],
     scripts=['webalin'],
-    install_requires=['html5lib', 'lxml', 'requests'],
+    install_requires=['lxml', 'requests'],
     classifiers = (
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',

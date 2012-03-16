@@ -26,7 +26,7 @@ def main():
         ## Get the info from argv
         markup_or_url = sys.argv[-1]
     data = webalin.analyze(markup_or_url.strip())
-    print json.dumps(data, indent=4)
+    print '\n'.join(data)
 
 
 if __name__ == '__main__':
