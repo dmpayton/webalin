@@ -11,26 +11,37 @@ class HttpStatusWarning(Warning):
 
 
 class LintMessages(object):
+    ERROR_LEVELS = {
+        'E': 'errors',
+        'W': 'warnings'
+        }
+
     def __init__(self):
         self._log = []
+        self._stats = dict([(k, 0) for k in self.ERROR_LEVELS.itervalues()])
 
-    def log(self, message, element=None, level=None):
-        level = level or 'D'
-        lineno = str(getattr(element, 'sourceline', '-'))
+    def log(self, message, level, element=None):
+        lineno = getattr(element, 'sourceline', None)
         self._log.append((level, lineno, message))
+        if level in self.ERROR_LEVELS:
+            self._stats[self.ERROR_LEVELS[level]] += 1
 
     def get_output(self):
-        output = []
+        output = {
+            'messages': [],
+            'stats': self._stats
+            }
         logs = sorted(self._log, key=itemgetter(0, 1))
-        for lineno, level, message in logs:
-            output.append('{0}: {1}: {2}'.format(lineno, level, message))
+        for level, lineno, message in logs:
+            lineno = lineno or '-'
+            output['messages'].append('{0}: {1}: {2}'.format(level, lineno, message))
         return output
 
     def warn(self, message, element=None):
-        self.log(message, element, 'W')
+        self.log(message, 'W', element)
 
     def error(self, message, element=None):
-        self.log(message, element, 'E')
+        self.log(message, 'E', element)
 
 
 class Webalin(object):
@@ -164,7 +175,7 @@ class Webalin(object):
 
             rows = table.cssselect('tr[scope]')
             if not len(rows):
-                self.log.warn('<table> contains no <tr> with scope', table)
+                self.log.warn('<table> contains no <tr> with [scope]', table)
 
 
 def analyze(markup_or_url, tests=None):

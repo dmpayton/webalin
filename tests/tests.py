@@ -21,13 +21,15 @@ class WebalinTests(unittest.TestCase):
         markup = self.load_document('accessible')
         w = webalin.Webalin()
         results = w.analyze(markup, tests)
-        self.assertEqual(len(results), 0)
+        self.assertEqual(results['stats']['errors'], 0)
+        self.assertEqual(results['stats']['warnings'], 0)
 
     def test_inaccessible(self, tests=None):
         markup = self.load_document('inaccessible')
         w = webalin.Webalin()
         results = w.analyze(markup, tests)
-        self.assertGreater(len(results), 0)
+        self.assertGreater(results['stats']['errors'], 0)
+        self.assertGreater(results['stats']['warnings'], 0)
 
 
 

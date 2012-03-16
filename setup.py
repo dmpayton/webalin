@@ -6,7 +6,7 @@ except ImportError:
 
 setup(
     name='webalin',
-    version='0.1.0',
+    version='0.1.0-dev',
     description='Web Accessibility Linter',
     license='MIT',
     url='https://github.com/dmpayton/webalin',
