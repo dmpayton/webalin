@@ -29,9 +29,9 @@ as a list::
 
     >>> import webalin
     >>> webalin.analyze('https://www.djangoproject.com/')
-    [ ... ]
+    { ... }
     >>> webalin.analyze(open('document.html', 'r').read())
-    [ ... ]
+    { ... }
 
 **Command Line**
 
@@ -59,6 +59,17 @@ Format: ``[type]: [lineno]: [message]``
     E: 41: <input:id_password> is missing <label>
     W: 17: <table> contains no <tr> with [scope]
 
+Testing
+-------
+
+::
+
+    cd tests
+    python tests.py
+
+The unit tests are currently a very basic, only checking that an inaccessible
+document returns errors and an accessible one doesn't. Better unit tests would
+involve testing each accessibility test individually. This is still TODO.
 
 
 .. _Derek Payton: http://dmpayton.com
