@@ -11,7 +11,6 @@ class HttpStatusWarning(Warning):
 
 
 class LintMessages(object):
-
     def __init__(self):
         self._log = []
         self._stats = {

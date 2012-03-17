@@ -1,10 +1,10 @@
-Welcome to webalin's documentation!
-===================================
+Webalin: Section 508 Compliance Linter
+======================================
 
 `Webalin`_ is a **Web** **A**\ ccessibility **Lin**\ ter that helps ensure
 your website is `Section 508`_ compliant. Webalin is written in Python and
-can be called from the command line or imported for use in your projects
-test suite.
+can be called from the command line or imported for use in your projects test
+suite.
 
 :Author: `Derek Payton`_
 :Version: 0.1.0

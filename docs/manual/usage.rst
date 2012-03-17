@@ -1,8 +1,8 @@
 Usage
 =====
 
-Library
--------
+Python Library
+--------------
 
 ``webalin.analyze`` can accept a URL or a full HTML document and returns errors
 as a list::
@@ -16,16 +16,14 @@ as a list::
                   'E: 200: <input> is missing [id]'],
      'stats': {'errors': 5, 'warnings': 0}}
 
-    >>> webalin.analyze(open('accessible-document.html', 'r').read())
+    >>> webalin.analyze(open('tests/resources/accessible.html', 'r').read())
     {'messages': [], 'stats': {'errors': 0, 'warnings': 0}}
 
-Command Line
-------------
+Command Line Utility
+--------------------
 
 The command line utility accepts arguments from ``sys.stdin`` or ``sys.argv``
 and prints errors to stdout::
-
-    $ ./webalin https://www.djangoproject.com
 
     $ cat tests/resources/inaccessible.html | ./webalin
     E: -: <!DOCTYPE> is missing
@@ -37,3 +35,10 @@ and prints errors to stdout::
     E: 37: <input:id_username> is missing <label>
     E: 41: <input:id_password> is missing <label>
     W: 17: <table> contains no <tr> with [scope]
+
+An HTML document that passes all accessibility tests will not return any
+output::
+
+    $ webalin https://www.djangoproject.com
+
+    $

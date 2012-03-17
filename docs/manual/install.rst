@@ -6,7 +6,6 @@ Dependencies
 
 * `lxml`_
 * `requests`_
-* `json`_, `simplejson`_, or `django.utils.simplejson`_
 
 Install
 -------
@@ -14,6 +13,8 @@ Install
 Use `pip`_ to get the latest development version::
 
     pip install -e git+git://github.com/dmpayton/webalin.git
+
+Webalin will be uploaded to PyPI once it is deemed (relatively) stable.
 
 .. _lxml: http://lxml.de/
 .. _requests: http://python-requests.org/

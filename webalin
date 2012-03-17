@@ -3,20 +3,6 @@
 import sys
 import webalin
 
-## Try to import a JSON library from somewhere, anywhere
-try:
-    ## Python >= 2.6
-    import json
-except ImportError:
-    try:
-        ## Python < 2.6
-        import simplejson as json
-    except ImportError:
-        try:
-            ## Django and/or Google App Engine
-            from django.utils import simplejson as json
-        except ImportError:
-            raise ImportError("A suitable JSON library could not be found")
 
 def main():
     if sys.argv[-1] == __file__:
