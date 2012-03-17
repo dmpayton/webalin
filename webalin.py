@@ -11,20 +11,17 @@ class HttpStatusWarning(Warning):
 
 
 class LintMessages(object):
-    ERROR_LEVELS = {
-        'E': 'errors',
-        'W': 'warnings'
-        }
 
     def __init__(self):
         self._log = []
-        self._stats = dict([(k, 0) for k in self.ERROR_LEVELS.itervalues()])
+        self._stats = {
+            'warnings': 0,
+            'errors': 0
+            }
 
     def log(self, message, level, element=None):
         lineno = getattr(element, 'sourceline', None)
         self._log.append((level, lineno, message))
-        if level in self.ERROR_LEVELS:
-            self._stats[self.ERROR_LEVELS[level]] += 1
 
     def get_output(self):
         output = {
@@ -39,9 +36,11 @@ class LintMessages(object):
 
     def warn(self, message, element=None):
         self.log(message, 'W', element)
+        self._stats['warnings'] += 1
 
     def error(self, message, element=None):
         self.log(message, 'E', element)
+        self._stats['errors'] += 1
 
 
 class Webalin(object):
@@ -138,8 +137,9 @@ class Webalin(object):
 
     def check_input_label(self):
         ''' <form> elements must have <label>s '''
+        no_label_required = ('button', 'submit', 'reset', 'image')
         for input in self.dom.cssselect('input, textarea, select'):
-            if input.tag == 'input' and input.get('type') in ('button', 'submit', 'reset'):
+            if input.tag == 'input' and input.get('type') in no_label_required:
                 ## Buttons don't need explicit labels, do they?
                 continue
 
