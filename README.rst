@@ -1,80 +1,33 @@
 webalin
 =======
 
-**Web** **A**\ ccessibility **Lin**\ ter
+`Webalin`_ is a **Web** **A**\ ccessibility **Lin**\ ter that helps determine
+if a given HTML document is `Section 508`_ compliant.
 
 :Author: `Derek Payton`_
-:License: MIT
+:Version: 0.1.0-dev
+:License: `MIT`_
 
-Dependencies
-------------
+Documentation
+-------------
 
-* `lxml`_
-* `requests`_
-* JSON library (`json`_, `simplejson`_, or `django.utils.simplejson`_)
+http://webalin.readthedocs.org/
 
-Install
--------
-
-*Forthcoming...*
-
-Usage
------
-
-**Library**
-
-
-``webalin.analyze`` can accept a URL or a full HTML document and returns errors
-as a list::
-
-    >>> import webalin
-    >>> webalin.analyze('https://www.djangoproject.com/')
-    { ... }
-    >>> webalin.analyze(open('document.html', 'r').read())
-    { ... }
-
-**Command Line**
-
-The command line utility accepts arguments from ``sys.stdin`` or ``sys.argv``
-and prints errors to stdout::
-
-    $ webalin http://www.python.org
-    ...
-    $ cat document.html | webalin
-    ...
-
-**Output Sample**
-
-Format: ``[type]: [lineno]: [message]``
+tl;dr
+~~~~~
 
 ::
 
-    E: -: <!DOCTYPE> is missing
-    E: -: <title> is missing
-    E: 7: <img:/satic/images/logo.png> is missing [alt]
-    E: 17: <table> is missing [summary]
-    E: 19: <th> is missing [scope]
-    E: 20: <th> is missing [scope]
-    E: 37: <input:id_username> is missing <label>
-    E: 41: <input:id_password> is missing <label>
-    W: 17: <table> contains no <tr> with [scope]
+    $ pip install -e git+git://github.com/dmpayton/webalin.git
+    ...
+    $ webalin http://python.org
+    E: 94: <input:domains> is missing <label>
+    E: 95: <input:sitesearch> is missing <label>
+    E: 96: <input:sourceid> is missing <label>
+    E: 97: <input:q> is missing <label>
+    E: 200: <input> is missing [id]
 
-Testing
--------
-
-::
-
-    cd tests
-    python tests.py
-
-The unit tests are currently a very basic, only checking that an inaccessible
-document returns errors and an accessible one doesn't. Better unit tests would
-involve testing each accessibility test individually. This is still TODO.
-
-
+.. _Webalin: https://github.com/dmpayton/webalin
 .. _Derek Payton: http://dmpayton.com
-.. _lxml: http://lxml.de/
-.. _requests: http://python-requests.org/
-.. _json: http://docs.python.org/library/json.html
-.. _simplejson: http://pypi.python.org/pypi/simplejson/
-.. _django.utils.simplejson: https://www.djangoproject.com/
+.. _MIT: https://github.com/dmpayton/webalin/blob/master/LICENSE
+.. _Section 508: http://section508.gov
